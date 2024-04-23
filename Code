@@ -1,0 +1,32 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+df = pd.read_csv('/content/MergedFinal.csv')  # Replace 'crop_data.csv' with your dataset file path
+
+# Check the first few rows of the dataset
+print(df.head())
+
+# Check for missing values
+print(df.isnull().sum())
+
+# Option 1: Removing rows with missing values
+df_cleaned = df.dropna()
+
+# Visualizing data
+# Example: Histogram of numerical data
+plt.hist(df['Modal Price (Rs./Quintal)'], bins=20, color='blue', alpha=0.7)
+plt.xlabel('Modal Price (Rs./Quintal)')
+plt.ylabel('Frequency')
+plt.title('Histogram of Modal Price (Rs./Quintal)')
+plt.show()
+
+# Example: Box plot to identify outliers
+sns.boxplot(x=df['Modal Price (Rs./Quintal)'])
+plt.xlabel('Modal Price (Rs./Quintal)')
+plt.title('Box plot of Modal Price (Rs./Quintal)')
+plt.show()
+
+
